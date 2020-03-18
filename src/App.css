@@ -1,0 +1,218 @@
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic');
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+    background: #161b1e;
+    font-family: Roboto;
+    font-size: 27px;
+    line-height: 20px;
+    margin: 0;
+}
+
+.header {
+  color: gray;
+  display: flex;
+  height: 85px;
+  align-items: center;
+  padding: 10px;
+}
+
+.header img {
+    height: 18px;
+
+}
+
+.header .arrow {
+    height: 8px; 
+    width: 13px;
+    padding: 0 25px;
+}
+
+.nav {
+  flex: 1 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  margin: 0 5px;
+  border-radius: 3px;
+  padding: 2px;
+  height: 100%;
+}
+
+.calendar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 27px;
+    width: 100%;
+}
+
+.calendar select {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 85%;
+    color: gray;
+}
+
+.value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.value select {
+    /* -webkit-appearance: none;
+    background: url(image/arrow_drop_down.png);
+    background-repeat:no-repeat;
+	background-size:10px 5px;
+    background-position: center;
+    background-position-x: calc(100% - 8px); */
+    border: none;
+    color: gray;
+}
+
+.newReserve {
+    text-align: center;
+    font-size: 14px;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    height: calc(100vh - 85px);
+}
+ 
+.leftPanel {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 7%;
+}
+
+.main img {
+    height: 29px;
+}
+
+select {
+    font-size: 14px;
+}
+
+.tab {
+    width: 100%;
+    border-bottom: solid 1px black;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wifi {
+    position: relative;
+}
+
+.wifi .wifiAfter {
+    position: absolute;
+    left: 44%;
+}
+
+.content {
+    color: white;
+    background-color: #e9eae9;
+    width: 93%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.order {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    color: black;
+    margin: 14px;
+    font-size: 16px;
+    border: solid #d4d4d4 1px;
+    box-shadow: 5px 5px 9px #9b9b9b;
+    height: 157px;
+}
+
+.content .part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    height: 100%;
+    box-sizing: border-box;
+    width: 100%;
+    border-right: 1px solid #d4d4d4;
+}
+
+.orderMain {
+  overflow: auto;
+}
+
+.position {
+    display: flex;
+    padding: 10px 0;
+}
+
+.order img {
+    height: 25px;
+    margin-right: 12px;
+}
+
+.part .time {
+    font-size: 24px;
+}
+
+.expectation {
+    font-weight: bold;
+}
+
+.partNumber {
+    display: flex;
+    flex-direction: column;
+}
+
+.valueMain {
+    display: flex;
+}
+
+.bottomStatus {
+    background-color: #4a494a;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.delete {
+  position: absolute;
+  top: 6%;
+  right: 0%;
+}
+
+.buttonCreate {
+  color: white;
+  background-color: #8b8b8b;
+  border: none;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+.bottomPanel {
+  display: flex;
+    flex-direction: column;
+}
