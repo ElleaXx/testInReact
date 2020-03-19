@@ -7,7 +7,6 @@
   box-sizing: border-box;
 }
 
-
 body {
     background: #161b1e;
     font-family: Roboto;
@@ -215,4 +214,79 @@ select {
 .bottomPanel {
   display: flex;
     flex-direction: column;
+}
+
+.modalMain {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #cecece;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.change {
+    display: flex;
+}
+.change input {
+    box-shadow: 5px 5px 9px #9b9b9b;
+    border:  1px black solid;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    height: 50px;
+    margin: 20px 0px;
+}
+
+.modalMain select {
+    box-shadow: 5px 5px 9px #9b9b9b;
+    border:  1px black solid;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    font-size: 20px;
+    text-align: center;
+    height: 50px;
+    margin: 20px 0px;
+}
+
+.hall {
+    box-shadow: 5px 5px 9px #9b9b9b;
+    border:  1px black solid;
+    border-right: none;
+    border-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    font-size: 20px;
+    text-align: center;
+    height: 50px;
+    margin: 20px 0px;
+}
+
+.change p {
+    margin: 25px;
+}
+
+.modalMain .buttonSave {
+    position: absolute;
+    background-color: #4aa516;
+    border: #4aa516 1px solid;
+    border-radius: 7px;
+    height: 60px;
+    width: 15vw;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+}
+
+.modalMain .buttonOff {
+    height: 57px;
+    position: absolute;
+    top: 0;
+    right: 0;
 }

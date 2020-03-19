@@ -36,7 +36,7 @@ const Card = (props) => {
         <div className="part" style = {{width: '170%'}}>
             <div className="position">
                 <img src={require("../image/Union.png")}/>
-                <div>{props.hall}</div>
+                <div>№{props.hall}.</div>
             </div>
         </div>
         <div className="part">
@@ -49,7 +49,7 @@ const Card = (props) => {
         </div>
         <div className="part" style = {{width: '50%', border: 'none', position: 'relative'}}>
             <div className="position">
-                <img src={require("../image/border_color.png")}/>
+                <img onClick = {props.edit} src={require("../image/border_color.png")}/>
                 <img className = "delete" onClick = {props.onClick} src={require("../image/Delete-80_icon-icons.com_57340 (1).png")}/>
             </div>
         </div>
