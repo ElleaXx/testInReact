@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+input {
+    font-style: italic;
+}
+
 body {
     background: #161b1e;
     font-family: Roboto;
@@ -289,4 +293,15 @@ select {
     position: absolute;
     top: 0;
     right: 0;
+}
+
+
+.created {
+    box-shadow: 5px 5px 9px #9b9b9b;
+    border:  1px black solid;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+    height: 50px;
+    margin: 20px 0px;
 }
