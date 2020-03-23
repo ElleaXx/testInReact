@@ -41,7 +41,7 @@ const Card = ({waiting,status,count,time,name,phone,halls,created, edit, deleteC
         </div>
         <div className="part">
             <div className="position">
-                <div>{created}</div>
+                <div style = {{textAlign: 'center'}}>{created}</div>
             </div>
         </div>
         <div className="part" style = {{width: '50%', border: 'none', position: 'relative'}}>

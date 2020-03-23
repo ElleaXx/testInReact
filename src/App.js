@@ -126,8 +126,8 @@ class App extends Component {
 
       }
       else {
-        data[edit].data = data;
         let form = new FormData()
+        form.append('id', data[edit].id)
         form.append( 'waiting', waiting);
         form.append( 'status', status);
         form.append( 'count', count);
@@ -145,11 +145,23 @@ class App extends Component {
           return response.json();
         }).then((data) => {
           console.log(data)
+          
           this.getData()
+          this.setState(
+            {
+              modalIsOpen: false,
+              waiting: '',
+              status: '',
+              count: '',
+              time: '',
+              name: '',
+              phone: '',
+              halls: '',
+              created: '',
+            })
+
         });
-
       }
-
     }
 
     edit = (elem,index) => {
@@ -262,7 +274,7 @@ componentWillUnmount() {
     
     console.log('render отобразился')
     const data = this.state.data;
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div>
         <Nav />
@@ -298,7 +310,7 @@ componentWillUnmount() {
             </div>
           </div>
         </Main>
-        <Modal
+        <Modal style = {{background: 'whitesmoke'}}
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
@@ -306,7 +318,7 @@ componentWillUnmount() {
           contentLabel="Example Modal">
           <div className ='modalMain'>
           <div>
-                  <h2>Заполните обязательные поля</h2>
+                  <h2 style = {{marginTop: 'none'}}>Заполните обязательные поля</h2>
                 </div>
           <div className = 'change'>
 
@@ -322,21 +334,21 @@ componentWillUnmount() {
               </div>
               <div>
                 <p>
-                    <label>Количество:</label><br />
+                    <label>Количество</label><br />
                     <input type="text" value={this.state.count} onChange={this.handleChangeCount}/>
                 </p>
                 <p>
-                    <label>Окончание:</label><br />
+                    <label>Окончание</label><br />
                     <input type="text" value={this.state.time} onChange={this.handleChangeTime}/>
                 </p>
               </div>
               <div>
                 <p>
-                    <label>Имя:</label><br />
+                    <label>Имя</label><br />
                     <input type="text" value={this.state.name} onChange={this.handleChangeName}/>
                 </p>
                 <p>
-                    <label>Телефон:</label><br />
+                    <label>Телефон</label><br />
                     <input type="text" value={this.state.phone} onChange={this.handleChangePhone}/>
                 </p>
               </div>

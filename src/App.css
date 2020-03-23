@@ -1,7 +1,9 @@
 
-
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic');
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 * {
   box-sizing: border-box;
@@ -13,6 +15,10 @@ button {
 
 img {
     cursor: pointer;
+}
+
+img:hover {
+    
 }
 
 input {
@@ -156,7 +162,7 @@ select {
     margin: 14px;
     font-size: 16px;
     border: solid #d4d4d4 1px;
-    box-shadow: 5px 5px 9px #9b9b9b;
+    box-shadow: 5px 5px 9px #c7c7c7;
     height: 157px;
 }
 
@@ -209,6 +215,10 @@ select {
     padding: 10px;
 }
 
+.buttonSave {
+    box-shadow: 5px 5px 9px #c7c7c7;
+}
+
 .delete {
   position: absolute;
   top: 6%;
@@ -229,11 +239,12 @@ select {
 }
 
 .modalMain {
+    font-family: Montserrat;
     position: relative;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: #cecece;
+    background: linear-gradient(#e9eae9, #e9eae900);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -241,23 +252,22 @@ select {
     align-items: center;
     text-align: center;
 }
-
 .change {
     display: flex;
 }
 .change input {
-    box-shadow: 5px 5px 9px #9b9b9b;
-    border:  1px black solid;
+    box-shadow: 5px 5px 9px #c7c7c7;
+    border:  1px #9b9b9b solid;
     border-radius: 10px;
     font-size: 20px;
     text-align: center;
     height: 50px;
-    margin: 20px 0px;
+    margin: 12px 0px;
 }
 
 .modalMain select {
-    box-shadow: 5px 5px 9px #9b9b9b;
-    border:  1px black solid;
+    box-shadow: 5px 5px 9px #c7c7c7;
+    border:  1px #9b9b9b solid;
     border-radius: 10px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -268,8 +278,8 @@ select {
 }
 
 .hall {
-    box-shadow: 5px 5px 9px #9b9b9b;
-    border:  1px black solid;
+    box-shadow: 5px 5px 9px #c7c7c7;
+    border:  1px #9b9b9b solid;
     border-right: none;
     border-radius: 10px;
     border-top-right-radius: 0;
@@ -299,19 +309,19 @@ select {
 .modalMain .buttonOff {
     height: 57px;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 14px;
+    right: 14px;
 }
 
 
 .created {
-    box-shadow: 5px 5px 9px #9b9b9b;
-    border:  1px black solid;
+    box-shadow: 5px 5px 9px #c7c7c7;
+    border:  1px #9b9b9b solid;
     border-radius: 10px;
     font-size: 20px;
     text-align: center;
     height: 50px;
-    margin: 20px 0px;
+    margin: 12px 0px;
 }
 
 .notification-container .notification {
