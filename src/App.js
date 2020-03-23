@@ -92,6 +92,8 @@ class App extends Component {
         }).then((data) => {
           console.log(data)
           this.getData()
+        }).catch(error => {
+          console.log(error);
         });
       }
       else {
@@ -170,6 +172,22 @@ getData = () => {
   });
 }
 
+deletedData = (id) => {
+  let form = new FormData()
+  form.append( 'id', id);
+  fetch('http://testmax.serverway.ru/api/user/delete',
+  {
+    method: 'post', 
+    body: form
+  }).then((response) => {
+    console.log('response', response)
+    return response.json();
+  }).then((data) => {
+    console.log(data)
+    this.getData()
+  });
+}
+
 componentDidUpdate() {
   console.log('componentDidUpdate - обновление компонента')
 }
@@ -223,7 +241,7 @@ componentWillUnmount() {
                     phone= {elem.phone}
                     halls= {elem.halls}
                     created= {elem.created}
-                    deleteComp = {() => this.funcObgectDelete(index)}
+                    deleteComp = {() => this.deletedData(elem.id)}
                     edit = {() => this.edit(elem,index)}/>
                   )
                 }
