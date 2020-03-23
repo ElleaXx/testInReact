@@ -2,7 +2,6 @@ import React from 'react';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
  
 class Example extends React.Component {
-    
   createNotification = (type) => {
     return () => {
       switch (type) {
@@ -16,7 +15,7 @@ class Example extends React.Component {
           NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
           break;
         case 'error':
-          NotificationManager.error('Error message', 'Click me!', 5000, () => {
+          NotificationManager.error('Error message', 'Click me!', () => {
             alert('callback');
           });
           break;
@@ -25,7 +24,6 @@ class Example extends React.Component {
   };
  
   render() {
-      const {NotificationContainer, NotificationManager} = this.state
     return (
       <div>
         <button className='btn btn-info'

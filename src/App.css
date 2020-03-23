@@ -7,6 +7,14 @@
   box-sizing: border-box;
 }
 
+button {
+    cursor: pointer;
+}
+
+img {
+    cursor: pointer;
+}
+
 input {
     font-style: italic;
 }
@@ -304,4 +312,8 @@ select {
     text-align: center;
     height: 50px;
     margin: 20px 0px;
+}
+
+.notification-container .notification {
+    width: 110%; border-radius: 10px;
 }

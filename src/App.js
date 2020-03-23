@@ -5,6 +5,10 @@ import Main from './components/Main'
 import LeftPanel from './components/LeftPanel'
 import Card from './components/Card'
 import Modal from 'react-modal';
+import Example from './components/Notifications'
+
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 class App extends Component {
   state = {
@@ -29,11 +33,11 @@ class App extends Component {
   // добавление компонента
 
 // удаление компонента
-    funcObgectDelete = (index) => {
-      let {data} = this.state
-      data.splice(index,1);
-      this.setState({data: data})
-    }
+    // funcObgectDelete = (index) => {
+    //   let {data} = this.state
+    //   data.splice(index,1);
+    //   this.setState({data: data})
+    // }
     openModal = () => {
       this.setState({modalIsOpen: true})
     }
@@ -91,13 +95,38 @@ class App extends Component {
           return response.json();
         }).then((data) => {
           console.log(data)
-          this.getData()
-        }).catch(error => {
-          console.log(error);
+          if (data.type == "error") {
+            this.createNotification("error",data.data.msg)
+            // this.setState ({
+            //   modalIsOpen: true,
+            // })
+            console.log(`Error`)
+          }
+          else {
+            this.getData()
+            this.setState(
+              {
+                modalIsOpen: false,
+                waiting: '',
+                status: '',
+                count: '',
+                time: '',
+                name: '',
+                phone: '',
+                halls: '',
+                created: '',
+              }
+            )
+          }
+        }).catch((err) => {
+            console.error(`Error ${err}`)
+          
         });
+
+
       }
       else {
-        data[edit].id = id;
+        data[edit].data = data;
         let form = new FormData()
         form.append( 'waiting', waiting);
         form.append( 'status', status);
@@ -120,18 +149,7 @@ class App extends Component {
         });
 
       }
-      this.setState(
-        {modalIsOpen: false,
-          waiting: '',
-          status: '',
-          count: '',
-          time: '',
-          name: '',
-          phone: '',
-          halls: '',
-          created: '',
-        }
-      )
+
     }
 
     edit = (elem,index) => {
@@ -184,6 +202,10 @@ deletedData = (id) => {
     return response.json();
   }).then((data) => {
     console.log(data)
+    if(data.type == 'error') {
+      this.createNotification('error', data.data.msg);
+    }
+    else
     this.getData()
   });
 }
@@ -214,11 +236,30 @@ componentWillUnmount() {
     // componentDitCatch()
 
 
+  createNotification = (type, message) => {
+    
+      switch (type) {
+        case 'info':
+          NotificationManager.info(message);
+          break;
+        case 'success':
+          NotificationManager.success(message);
+          break;
+        case 'warning':
+          NotificationManager.warning(message);
+          break;
+        case 'error':
+          NotificationManager.error(message, '', 5000);
+          break;
+        }
+      };
+
 
 
 
 
   render() {
+    
     console.log('render отобразился')
     const data = this.state.data;
     console.log(this.state);
@@ -226,6 +267,7 @@ componentWillUnmount() {
       <div>
         <Nav />
         <Main>
+        <NotificationContainer/>
           <LeftPanel/>
           <div className="content">
             <div className="orderMain">
@@ -263,8 +305,12 @@ componentWillUnmount() {
           style={this.customStyles}
           contentLabel="Example Modal">
           <div className ='modalMain'>
+          <div>
+                  <h2>Заполните обязательные поля</h2>
+                </div>
           <div className = 'change'>
-              <form>
+
+              <div>
                 <p>
                     <label>Время</label><br />
                     <input type="text" value={this.state.waiting} onChange={this.handleChangeWaiting}/>
@@ -273,8 +319,8 @@ componentWillUnmount() {
                     <label>Статус</label><br />
                     <input type="text" value={this.state.status} onChange={this.handleChangeStatus}/>
                 </p>
-              </form>
-              <form>
+              </div>
+              <div>
                 <p>
                     <label>Количество:</label><br />
                     <input type="text" value={this.state.count} onChange={this.handleChangeCount}/>
@@ -283,8 +329,8 @@ componentWillUnmount() {
                     <label>Окончание:</label><br />
                     <input type="text" value={this.state.time} onChange={this.handleChangeTime}/>
                 </p>
-              </form>
-              <form>
+              </div>
+              <div>
                 <p>
                     <label>Имя:</label><br />
                     <input type="text" value={this.state.name} onChange={this.handleChangeName}/>
@@ -293,11 +339,11 @@ componentWillUnmount() {
                     <label>Телефон:</label><br />
                     <input type="text" value={this.state.phone} onChange={this.handleChangePhone}/>
                 </p>
-              </form>
+              </div>
             </div>
-            <form>
-            <p>
-              <label>Зал:</label><br />
+            <div>
+            <p style = {{marginTop: 0}}>
+              <label >Зал:</label><br />
               <input className ='hall' type="text" value={this.state.halls} onChange={this.handleChangeHalls}/>
                 <select>
                   <option>Основной зал</option>
@@ -310,7 +356,7 @@ componentWillUnmount() {
             </p>
             <button className = 'buttonSave' onClick = {this.handleSubmit}>Сохранить и выйти</button>
             <img src = {require("./image/Delete-80_icon-icons.com_57340 (1).png")} className = 'buttonOff' onClick = {this.closeModal}/>
-            </form>
+            </div>
           </div>
         </Modal>
       </div>
